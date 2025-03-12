@@ -25,12 +25,14 @@ const randomBG = function(count = 1, image_server = null, image_list = []) {
   }
 
   var parseImage = function(img, size) {
-    if (img.startsWith('//') || img.startsWith('http')) {
-      return img
-    } else {
-      return 'https://tva'+randomServer+'.sinaimg.cn/'+size+'/'+img
+      if (img.startsWith('//') || img.startsWith('http')) {
+        return img
+      } else {
+        // return 'https://i0.wp.com/' + `tva${randomServer}.sinaimg.cn/` + size + '/' + img;
+        return 'https://image.baidu.com/search/down?url=' + `https://tva${randomServer}.sinaimg.cn/` + size + '/' + img;
+        // return 'https://tva'+randomServer+'.sinaimg.cn/'+size+'/'+img
+      }
     }
-  }
 
   if(count && count > 1) {
     var shuffled = image_list.slice(0), i = image_list.length, min = i - count, temp, index;
